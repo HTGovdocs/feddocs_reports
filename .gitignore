@@ -1,0 +1,7 @@
+config/mongoid.yml
+.env
+.rspec
+.bundle
+
+spec/data/source_records.json
+spec/data/registry_records.json
