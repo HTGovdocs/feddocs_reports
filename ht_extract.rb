@@ -3,12 +3,20 @@ require 'source_record'
 require 'pp'
 require 'traject'
 
+#load the HT we want to work with
+source_records = ARGV.shift
+`mongo htonly --eval "db.dropDatabase()"`
+`mongoimport --db htonly --collection source_records --file #{source_records}`
+
+#connect Mongoid
+Mongoid.load!("config/mongoid.yml", :development)
+Mongo::Logger.logger.level = ::Logger::FATAL
+
+
+# Use traject for a few fields
 @extractor = Traject::Indexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
-Mongoid.load!("config/mongoid.yml", :development)
-
-Mongo::Logger.logger.level = ::Logger::FATAL
 
 bib_rec_count = 0
 item_count = 0
@@ -20,14 +28,14 @@ year_cataloged = {}
  
 leader = {}
 
-summ_stats = {}
-summ_stats[:r] = {}
-summ_stats[:s] = {}
-summ_stats[:c] = {}
-summ_stats[:y] = {}
-summ_stats[:publisher] = {}
-summ_stats[:subject] = {}
-summ_stats[:place_of_publication] = {}
+rights_count = {}
+digitizing_agent = {}
+contributors = {}
+holding_years = {}
+norm_publisher_counts = {}
+publisher_counts = {}
+subject_counts = {}
+place_of_publication = {}
 
 summ_out = open(ARGV.shift, 'w')
 pub_out = open('ht_publisher.txt', 'w')
@@ -35,7 +43,6 @@ place_out = open('ht_place.txt', 'w')
 sub_out = open('ht_subject.txt', 'w')
 corp_out = open('ht_corp_auth.txt', 'w')
 
-# all HT records 
 SourceRecord.where(org_code:"miaahdl",
                   deprecated_timestamp:{"$exists":0},
                   in_registry:true).no_timeout.each do | src |
@@ -65,39 +72,45 @@ SourceRecord.where(org_code:"miaahdl",
 
   if rec['publisher']
     rec['publisher'].each do |pub|
-      summ_stats[:publisher][pub] ||= 0
-      summ_stats[:publisher][pub] += 1
+      publisher_counts[pub] ||= 0
+      publisher_counts[pub] += 1
+      normed = Normalize.corporate(pub, false)
+      norm_publisher_counts[normed] ||= 0
+      norm_publisher_counts[normed] += 1
     end
   end
   if rec['subject']
     rec['subject'].each do | sub |
-      summ_stats[:subject][sub] ||= 0
-      summ_stats[:subject][sub] += 1
+      subject_counts[sub] ||= 0
+      subject_counts[sub] += 1
     end
   end
   if rec['place_of_publication']
     rec['place_of_publication'].each do |place|
-      summ_stats[:place_of_publication][place] ||= 0
-      summ_stats[:place_of_publication][place] += 1
+      place.upcase!
+      place.gsub!(/\./,'')
+      place_of_publication[place] ||= 0
+      place_of_publication[place] += 1
     end 
   end
   if rec['corp_author']
     #PP.pp Normalize.corporate(rec['corp_author'].map{ |sf| Normalize.corporate(sf)}.join(' '), false)
   end
   
-
-  #we want a tab delimited copy of this
+  #holdings level counts
   src.holdings.each do |ec, holdings|
     holdings.each do |hold|
       dig_obj_count += 1
-      summ_stats[:r][hold[:r]] ||= 0
-      summ_stats[:r][hold[:r]] += 1
-      summ_stats[:s][hold[:s]] ||= 0
-      summ_stats[:s][hold[:s]] += 1
-      summ_stats[:c][hold[:c].downcase] ||= 0
-      summ_stats[:c][hold[:c].downcase] += 1
-      summ_stats[:y][hold[:y]] ||= 0
-      summ_stats[:y][hold[:y]] += 1
+      rights_count[hold[:r]] ||= 0
+      rights_count[hold[:r]] += 1
+      digitizing_agent[hold[:s]] ||= 0
+      digitizing_agent[hold[:s]] += 1
+      contributors[hold[:c].downcase] ||= 0
+      contributors[hold[:c].downcase] += 1
+      holding_years[hold[:y]] ||= 0
+      holding_years[hold[:y]] += 1
+
+      #if we want a tab delimited copy of this
 =begin
       puts [src.local_id,
             hold[:c].downcase,
@@ -119,16 +132,18 @@ summ_out.puts "#{mono_count} monograph records. #{serial_count} serial records."
 summ_out.puts "# of unique items represented in the Registry: #{item_count}"
 summ_out.puts "# of digital objects (974): #{dig_obj_count}"
 summ_out.puts "Rights determinations:"
-summ_stats[:r].each {|r,cnt| summ_out.puts "\t#{r}: #{cnt}"}
+rights_count.each {|r,cnt| summ_out.puts "\t#{r}: #{cnt}"}
 summ_out.puts "Contributors:"
-summ_stats[:c].each {|c,cnt| summ_out.puts "\t#{c}: #{cnt}"}
+contributors.each {|c,cnt| summ_out.puts "\t#{c}: #{cnt}"}
 summ_out.puts "Digitizing Agent:"
-summ_stats[:s].each {|s,cnt| summ_out.puts "\t#{s}: #{cnt}"}
+summ_out.puts "Contributors:"
+contributors.each {|c,cnt| summ_out.puts "\t#{c}: #{cnt}"}
+summ_out.puts "Digitizing Agent:"
+digitizing_agent.each {|s,cnt| summ_out.puts "\t#{s}: #{cnt}"}
 summ_out.puts "Years:"
-summ_stats[:y].each {|y,cnt| summ_out.puts "\t#{y}: #{cnt}"}
-#summ_out.puts "Publisher:"
-summ_stats[:publisher].sort_by {|k,v| v}.reverse.each {|pub,cnt| pub_out.puts "#{cnt}: #{pub}"}
-summ_stats[:place_of_publication].sort_by{|k,v| v}.reverse.each {|place,cnt| place_out.puts "#{cnt}: #{place}"}
-summ_stats[:subject].sort_by{|k,v| v}.reverse.each {|subject,cnt| sub_out.puts "\t#{cnt}: #{subject}"}
-
-PP.pp year_cataloged 
+holding_years.each {|y,cnt| summ_out.puts "\t#{y}: #{cnt}"}
+summ_out.puts "Publisher:"
+norm_publisher_counts.sort_by {|k,v| v}.reverse.each {|pub,cnt| summ_out.puts "#{cnt}: #{pub}"}
+#these are too big to stick in summ stats.
+publisher_counts.sort_by {|k,v| v}.reverse.each {|pub,cnt| pub_out.puts "#{cnt}: #{pub}"}
+place_of_publication.sort_by{|k,v| v}.reverse.each {|place,cnt| place_out.puts "#{cnt}: #{place}"}
