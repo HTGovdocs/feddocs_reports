@@ -2,16 +2,26 @@ require 'registry_record'
 require 'source_record'
 require 'pp'
 require 'traject'
+require 'yaml'
 
 #load the HT we want to work with
 source_records = ARGV.shift
 `mongo htonly --eval "db.dropDatabase()"`
 `mongoimport --db htonly --collection source_records --file #{source_records}`
+# Make our report directory if it doesn't already exist
+sr_date = source_records.split('_')[1]
+rep_dir = __dir__+"reports/#{sr_date}"
+Dir.mkdir(rep_dir) 
+unless File.exists? (rep_dir)
 
 #connect Mongoid
 Mongoid.load!("config/mongoid.yml", :development)
 Mongo::Logger.logger.level = ::Logger::FATAL
 
+#load some mappings
+contribs = YAML.load(__dir__+'mappings/contributors.yml')
+digitizers = YAML.load(__dir__+'mappings/digitizing.yml')
+rights = YAML.load(__dir__+'mappings/rights.yml')
 
 # Use traject for a few fields
 @extractor = Traject::Indexer.new
@@ -37,11 +47,16 @@ publisher_counts = {}
 subject_counts = {}
 place_of_publication = {}
 
-summ_out = open(ARGV.shift, 'w')
-pub_out = open('ht_publisher.txt', 'w')
-place_out = open('ht_place.txt', 'w')
-sub_out = open('ht_subject.txt', 'w')
-corp_out = open('ht_corp_auth.txt', 'w')
+summ_out = open(rep_dir+'/summary.txt', 'w')
+rights_out = open(rep_dir+'/rights.tsv', 'w')
+dig_out = open(rep_dir+'/digitizing.tsv', 'w')
+contrib_out = open(rep_dir+'/contribors.tsv', 'w')
+pub_out = open(rep_dir+'/publisher.tsv', 'w')
+normpub_out = open(rep_dir+'/normpublisher.tsv', 'w')
+place_out = open(rep_dir+'/place.tsv', 'w')
+sub_out = open(rep_dir+'/subject.tsv', 'w')
+corp_out = open(rep_dir+'/corp_auth.tsv', 'w')
+years_out = open(rep_dir+'/yearpub.tsv', 'w')
 
 SourceRecord.where(org_code:"miaahdl",
                   deprecated_timestamp:{"$exists":0},
@@ -101,12 +116,12 @@ SourceRecord.where(org_code:"miaahdl",
   src.holdings.each do |ec, holdings|
     holdings.each do |hold|
       dig_obj_count += 1
-      rights_count[hold[:r]] ||= 0
-      rights_count[hold[:r]] += 1
-      digitizing_agent[hold[:s]] ||= 0
-      digitizing_agent[hold[:s]] += 1
-      contributors[hold[:c].downcase] ||= 0
-      contributors[hold[:c].downcase] += 1
+      rights_count[rights[hold[:r]]] ||= 0
+      rights_count[rights[hold[:r]]] += 1
+      digitizing_agent[digitizers[hold[:s]]] ||= 0
+      digitizing_agent[digitizers[hold[:s]]] += 1
+      contributors[contribs[hold[:c].downcase]] ||= 0
+      contributors[contribs[hold[:c].downcase]] += 1
       holding_years[hold[:y]] ||= 0
       holding_years[hold[:y]] += 1
 
@@ -131,19 +146,20 @@ summ_out.puts "# of Bibliographic Records: #{bib_rec_count}"
 summ_out.puts "#{mono_count} monograph records. #{serial_count} serial records."
 summ_out.puts "# of unique items represented in the Registry: #{item_count}"
 summ_out.puts "# of digital objects (974): #{dig_obj_count}"
-summ_out.puts "Rights determinations:"
-rights_count.each {|r,cnt| summ_out.puts "\t#{r}: #{cnt}"}
-summ_out.puts "Contributors:"
-contributors.each {|c,cnt| summ_out.puts "\t#{c}: #{cnt}"}
-summ_out.puts "Digitizing Agent:"
-summ_out.puts "Contributors:"
-contributors.each {|c,cnt| summ_out.puts "\t#{c}: #{cnt}"}
-summ_out.puts "Digitizing Agent:"
-digitizing_agent.each {|s,cnt| summ_out.puts "\t#{s}: #{cnt}"}
-summ_out.puts "Years:"
-holding_years.each {|y,cnt| summ_out.puts "\t#{y}: #{cnt}"}
-summ_out.puts "Publisher:"
-norm_publisher_counts.sort_by {|k,v| v}.reverse.each {|pub,cnt| summ_out.puts "#{cnt}: #{pub}"}
-#these are too big to stick in summ stats.
-publisher_counts.sort_by {|k,v| v}.reverse.each {|pub,cnt| pub_out.puts "#{cnt}: #{pub}"}
-place_of_publication.sort_by{|k,v| v}.reverse.each {|place,cnt| place_out.puts "#{cnt}: #{place}"}
+
+rights_count.sort_by {|r, cnt| cnt}.reverse
+    .each {|r,cnt| rights_out.puts "#{r}\t#{cnt}"}
+contributors.sort_by {|c, cnt| cnt}.reverse
+    .each {|c,cnt| contrib_out.puts "#{c}\t#{cnt}"}
+digitizing_agent.sort_by {|s, cnt| cnt}.reverse
+    .each {|s,cnt| dig_out.puts "#{s}\t#{cnt}"}
+#eliminate questionable publishing years
+holding_years.select { |y, cnt| y.to_s.to_i >= 1789 && y.to_s.to_i <= 2016 }
+    .sort_by {|y, cnt| y}.reverse
+    .each {|y,cnt| years_out.puts "#{y}\t#{cnt}"}
+norm_publisher_counts.sort_by {|k,v| v}.reverse
+    .each {|pub,cnt| normpub_out.puts "#{pub}\t#{cnt}"}
+publisher_counts.sort_by {|k,v| v}.reverse
+    .each {|pub,cnt| pub_out.puts "#{pub}\t#{cnt}"}
+place_of_publication.sort_by{|k,v| v}.reverse
+    .each {|place,cnt| place_out.puts "#{place}\t#{cnt}"}
