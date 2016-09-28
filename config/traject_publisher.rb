@@ -24,11 +24,14 @@ to_field "publisher",         extract_marc("260b")
 to_field "place_of_publication",   extract_marc("260a:264|1*|abc", :trim_punctuation => true)
 
 #subject
-to_field "subject",           extract_marc("600:610:611:630:650:651avxyz:653aa:654abcvyz:655abcvxyz:690abcdxyz:691abxyz:692abxyz:693abxyz:656akvxyz:657avxyz:652axyz:658abcd")
+to_field "subject",           extract_marc("600:610:611:650:651")
 
 #corporate author
 to_field "corp_author", extract_marc("110ab")
 
 #catalog_year
 to_field "catalog_year", extract_marc("008[0-1]") 
+
+#language
+to_field "language", marc_languages("008[35-37]:041a:041d:041e:041j") 
  
