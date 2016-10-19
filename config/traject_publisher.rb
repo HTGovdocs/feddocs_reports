@@ -23,8 +23,10 @@ to_field "publisher",         extract_marc("260b")
 #place of publication
 to_field "place_of_publication",   extract_marc("260a:264|1*|abc", :trim_punctuation => true)
 
+to_field "pub_date",            marc_publication_date
+
 #subject
-to_field "subject",           extract_marc("600:610:611:650:651")
+to_field "subject",           extract_marc("651")#"600:610:611:650:651")
 
 #corporate author
 to_field "corp_author", extract_marc("110ab")

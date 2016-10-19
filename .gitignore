@@ -4,4 +4,5 @@ config/mongoid.yml
 .bundle
 data
 *.tmp
-
+*.csv
+*.txt
