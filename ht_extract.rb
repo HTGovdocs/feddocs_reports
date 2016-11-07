@@ -102,7 +102,7 @@ source_records = ARGV.shift
 `mongoimport --db htonly --collection source_records --file #{source_records}`
 # Make our report directory if it doesn't already exist
 sr_date = source_records.split('_')[1].split('.')[0]
-rep_dir = __dir__+"/reports/#{sr_date}"
+rep_dir = __dir__+"/reports/#{sr_date}_#{Time.now.strftime("%F")}"
 Dir.mkdir(rep_dir) unless File.exists? (rep_dir)
 
 #connect Mongoid
@@ -116,6 +116,7 @@ SourceRecord.create_indexes
 contribs = YAML.load_file(__dir__+'/mappings/contributors.yml')
 digitizers = YAML.load_file(__dir__+'/mappings/digitizing.yml')
 rights = YAML.load_file(__dir__+'/mappings/rights.yml')
+sudoc_auth = YAML.load_file(__dir__+'/mappings/sudoc_stems.yml')
 
 # Use traject for a few fields
 @extractor = Traject::Indexer.new
@@ -130,8 +131,11 @@ summary = { num_bib_records:0,
             corpus_percent:0,
             num_missing_sudoc:0,
             num_missing_pubdate:0,
+            num_missing_publisher:0,
             num_missing_holding_pubdate:0,
             num_missing_language:0,
+            num_monograph_holdings:0,
+            num_serial_holdings:0,
             rpt_run_date:DateTime.now.strftime("%Y-%m-%d")}
 sudoc_count = 0
 item_count = 0
@@ -213,6 +217,8 @@ SourceRecord.where(org_code:"miaahdl",
       normed = Normalize.corporate(pub, false)
       norm_publisher_counts[normed] += 1
     end
+  else 
+    summary[:num_missing_publisher] += 1
   end
   if rec['subject']
     rec['subject'].each do | sub |
@@ -267,6 +273,14 @@ SourceRecord.where(org_code:"miaahdl",
       if hold[:y].nil? or hold[:y] == ''
         summary[:num_missing_holding_pubdate] += 1 
       end
+      if src.source['leader'] =~ /^.{7}m/
+        summary[:num_monograph_holdings] += 1
+        monodupes[src.holdings.count] += 1
+      elsif src.source['leader'] =~ /^.{7}s/
+        summary[:num_serial_holdings] += 1
+      elsif src.source['leader'] =~ /^.{7}d/
+        #PP.pp src.source.to_json
+      end
 
       #if we want a tab delimited copy of this
 =begin
@@ -306,7 +320,7 @@ summ_out.puts "# of digital objects (974): #{summary[:num_digital_objects]}"
 language_counts.sort_by {|lang, cnt| cnt}.reverse
   .each {|lang, cnt| languages_out.puts "#{lang}\t#{cnt}"}
 sudoc_stems.sort_by {|sudoc, cnt| cnt}.reverse
-  .each {|sudoc, cnt| sudocs_out.puts "#{sudoc}\t#{cnt}"}
+  .each {|sudoc, cnt| sudocs_out.puts "#{sudoc}\t#{cnt}\t#{sudoc_auth[sudoc.split(' ')[0]]}"}
 @compness.each do | series, line | 
   comp_out.puts [series.to_s, line[:ht], line[:corpus], (line[:ht].to_f / line[:corpus] * 100.0).round(2)].join("\t")
 end
