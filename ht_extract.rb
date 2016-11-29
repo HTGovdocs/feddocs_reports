@@ -301,7 +301,7 @@ PP.pp(leader, summ_out)
 # get some basic details of the Registry for comprehensiveness purposes
 # refactor!!!!
 Mongoid.load!("config/mongoid.yml", :production)
-summary[:corpus_size] = RegistryRecord.where(deprecation_timestamp:{"$exists":0}).count
+summary[:corpus_size] = RegistryRecord.where(deprecated_timestamp:{"$exists":0}).count
 summary[:corpus_percent] = summary[:num_unique_items].to_f / summary[:corpus_size].to_f * 100.0
 setComprehensiveness("Congressional Record")
 setComprehensiveness("Statistical Abstract")
