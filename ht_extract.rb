@@ -1,3 +1,6 @@
+# to run: 
+# bundle exec ruby ht_extract.rb data/<ht source date>
+# reports will be generated in a new directory in reports
 require 'registry/registry_record'
 require 'registry/source_record'
 require 'pp'
