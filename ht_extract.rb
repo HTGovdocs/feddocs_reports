@@ -18,7 +18,7 @@ def setComprehensiveness( series )
                  series:series).each do | reg | 
     @compness[series.to_s][:corpus] += 1
     if ['Full View','Limited View'].include? reg.ht_availability 
-      ids = (reg.ht_ids_fv + reg.ht_ids_lv).flatten.uniq
+      ids = (reg.ht_ids_fv + reg.ht_ids_lv).flatten.uniq.map {|i| i.gsub(/^0+/, '') }
       ht_ids << ids
     end
   end
