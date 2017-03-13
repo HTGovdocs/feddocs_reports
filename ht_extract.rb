@@ -111,6 +111,13 @@ Dir.mkdir(rep_dir) unless File.exists? (rep_dir)
 #connect Mongoid
 Mongoid.load!("config/mongoid.yml", :development)
 Mongo::Logger.logger.level = ::Logger::FATAL
+
+#fix our local ids
+SourceRecord.all.each do | src |
+  src.local_id = src.extract_local_id
+  src.save
+end
+
 #indexes for htonly
 SourceRecord.index(:local_id=>1)
 SourceRecord.create_indexes
