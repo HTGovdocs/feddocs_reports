@@ -18,7 +18,7 @@ settings do
 end
 
 #publisher
-to_field "publisher",         extract_marc("260b")
+to_field "publisher",         extract_marc("260b:264b")
 
 #place of publication
 to_field "place_of_publication",   extract_marc("260a:264|1*|abc", :trim_punctuation => true)
@@ -29,11 +29,15 @@ to_field "pub_date",            marc_publication_date
 to_field "subject",           extract_marc("651")#"600:610:611:650:651")
 
 #corporate author
-to_field "corp_author", extract_marc("110ab")
+to_field "author",            extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:700abcdegqu:710abcdegnu:711acdegjnqu")
+to_field "corp_author", extract_marc("110ab", :separator => nil)
 
 #catalog_year
 to_field "catalog_year", extract_marc("008[0-1]") 
 
 #language
 to_field "language", marc_languages("008[35-37]:041a:041d:041e:041j") 
- 
+
+#title
+to_field "title",       extract_marc("245a", :trim_punctuation => true)
+
