@@ -9,3 +9,4 @@ data
 .credentials
 .client_secret.json
 nohup.out
+garbage/*

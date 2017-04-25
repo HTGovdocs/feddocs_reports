@@ -68,13 +68,15 @@ SourceRecord.where(org_code:"miaahdl",
   #Digitization Agent
   #assuming only one for a new record
   digagent = ''
+  contributor = ''
   s.holdings.each do |ec, holdings|
     holdings.each do | hold |
       digagent = hold[:s]
+      contributor = hold[:c]
     end
   end
 
-  puts [title, author, publisher, pubdate, sudoc, digagent, base_url+s.local_id, s.ht_availability].join("\t")
+  puts [title, author, publisher, pubdate, sudoc, digagent, contributor, base_url+s.local_id, s.ht_availability].join("\t")
 end                   
 
 puts numhts

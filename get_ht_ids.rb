@@ -9,6 +9,7 @@ Mongoid.load!("config/mongoid.yml", :development)
 Mongo::Logger.logger.level = ::Logger::FATAL
 
 SourceRecord.where(org_code:"miaahdl",
+                   in_registry:true,
                   deprecated_timestamp:{"$exists":0}).no_timeout.each do | s |
   s.holdings.each do |ec, holdings|
     holdings.each do | hold |
