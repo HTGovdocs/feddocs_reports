@@ -13,7 +13,7 @@ SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :development)
+Mongoid.load!("config/mongoid.yml", :production)
 Mongo::Logger.logger.level = ::Logger::FATAL
 @extractor = Traject::Indexer.new
 @extractor.load_config_file('config/traject_publisher.rb')

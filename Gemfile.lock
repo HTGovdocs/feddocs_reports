@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/HTGovdocs/nauth.git
-  revision: 31e6112506578a4827f8a830d8d6f3047ec1a419
+  revision: 924bd60264c846fcc13c3e23f463d97693373ed3
   specs:
     nauth (0.1)
       dotenv
@@ -13,15 +13,15 @@ GIT
 
 GIT
   remote: https://github.com/HTGovdocs/oclc_filter.git
-  revision: a9c600240b85d501ce44817c9793af41c5b243f1
+  revision: 0690e0b6a580993266df37d0a65f146b3c8555b6
   specs:
     oclc_filter (0.1)
       dotenv
-      google-api-client
+      google-api-client (= 0.11.2)
 
 GIT
   remote: https://github.com/HTGovdocs/registry.git
-  revision: 85090d6a23aa9e641248902dcadca222982f750c
+  revision: d1be03b072cc17dce8461eb93926ed15a356bf8c
   specs:
     registry (0.9.4)
       dotenv
@@ -56,17 +56,17 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.2.8)
-      activesupport (= 4.2.8)
+    activemodel (4.2.9)
+      activesupport (= 4.2.9)
       builder (~> 3.1)
-    activesupport (4.2.8)
+    activesupport (4.2.9)
       i18n (~> 0.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    bson (3.2.6)
+    bson (3.2.7)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
@@ -77,7 +77,7 @@ GEM
     dotenv (2.2.1)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
-    google-api-client (0.11.3)
+    google-api-client (0.11.2)
       addressable (>= 2.5.1)
       googleauth (~> 0.5)
       httpclient (>= 2.8.1, < 3.0)
@@ -107,7 +107,7 @@ GEM
       unf
     marc-fastxmlwriter (1.0.0)
       marc (~> 1.0)
-    memoist (0.15.0)
+    memoist (0.16.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -125,7 +125,7 @@ GEM
       optionable (~> 0.2.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.4.6)
+    mysql2 (0.4.7)
     optionable (0.2.0)
     origin (2.3.1)
     os (0.9.6)
