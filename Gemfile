@@ -11,6 +11,7 @@ gem 'normalize', :git => 'https://github.com/HTGovdocs/normalize.git'
 gem 'viaf', :git => 'https://github.com/HTGovdocs/viaf.git'
 gem 'filter', :git => 'https://github.com/HTGovdocs/filter.git'
 gem 'nauth', :git => 'https://github.com/HTGovdocs/nauth.git'
+gem 'google-api-client', '0.11.2'
 
 gem 'rubyzip'
 gem 'rake'
