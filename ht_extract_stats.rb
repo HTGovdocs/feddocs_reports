@@ -44,7 +44,7 @@ SourceRecord.create_indexes
 @extractor = Traject::Indexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
-Dir.foreach(__dir__+"/data") do | s_f |
+Dir.new(__dir__+"/data").sort.each do | s_f |
   next if s_f !~ /ht.*01.json/
 
   sr_date = s_f.split('_')[1].split('.')[0].split('-')[0,2].join('-')
