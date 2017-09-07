@@ -276,7 +276,11 @@ SourceRecord.where(org_code:"miaahdl",
   src.holdings.each do |ec, holdings|
     holdings.each do |hold|
       summary[:num_digital_objects] += 1
-      rights_count[rights[hold[:r]]] += 1
+      if rights.keys.include? hold[:r]
+        rights_count[rights[hold[:r]]] += 1
+      else
+        rights_count[hold[:r]] += 1
+      end
       digitizing_agent[digitizers[hold[:s]]] += 1
       contributors[contribs[hold[:c].downcase]] += 1
       holding_years[hold[:y]] += 1
