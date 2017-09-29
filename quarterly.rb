@@ -19,8 +19,8 @@ Mongo::Logger.logger.level = ::Logger::FATAL
 @extractor.load_config_file('config/traject_publisher.rb')
 
 
-start = Moped::BSON::ObjectId.from_time(Time.new(2017,01,01))
-finish = Moped::BSON::ObjectId.from_time(Time.new(2017,04,01))
+start = Moped::BSON::ObjectId.from_time(Time.new(2017,7,01))
+finish = Moped::BSON::ObjectId.from_time(Time.new(2017,10,01))
 numhts = 0
 base_url = "https://catalog.hathitrust.org/Record/"
 SourceRecord.where(org_code:"miaahdl",
@@ -30,7 +30,6 @@ SourceRecord.where(org_code:"miaahdl",
   if s.source['leader'] !~ /^.{7}m/
     next
   end
-  numhts += 1
   marc = MARC::Record.new_from_hash(s.source) 
   rec = @extractor.map_record(marc)
 
@@ -69,13 +68,22 @@ SourceRecord.where(org_code:"miaahdl",
   #assuming only one for a new record
   digagent = ''
   contributor = ''
+  new = false
   s.holdings.each do |ec, holdings|
     holdings.each do | hold |
+      if hold[:d].to_i >= 20170701 and hold[:d].to_i < 20171001
+        new = true
+      end
       digagent = hold[:s]
       contributor = hold[:c]
     end
   end
 
+  # we only want it if the holding is actually new
+  if !new
+    next
+  end
+  numhts += 1
   puts [title, author, publisher, pubdate, sudoc, digagent, contributor, base_url+s.local_id, s.ht_availability].join("\t")
 end                   
 
