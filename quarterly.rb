@@ -32,6 +32,17 @@ SourceRecord.where(org_code:"miaahdl",
   end
   marc = MARC::Record.new_from_hash(s.source) 
   rec = @extractor.map_record(marc)
+  
+  # we only want it if the holding is actually new
+  new = false
+  rec['dig_date'].each do |dig|
+    if dig.to_i >= 20170701 and dig.to_i < 20171001
+      new = true
+    end
+  end
+  if !new
+    next
+  end
 
   #title
   if rec['title']
@@ -68,22 +79,14 @@ SourceRecord.where(org_code:"miaahdl",
   #assuming only one for a new record
   digagent = ''
   contributor = ''
-  new = false
   s.holdings.each do |ec, holdings|
     holdings.each do | hold |
-      if hold[:d].to_i >= 20170701 and hold[:d].to_i < 20171001
-        new = true
-      end
       digagent = hold[:s]
       contributor = hold[:c]
     end
   end
 
-  # we only want it if the holding is actually new
-  if !new
-    next
-  end
-  numhts += 1
+   numhts += 1
   puts [title, author, publisher, pubdate, sudoc, digagent, contributor, base_url+s.local_id, s.ht_availability].join("\t")
 end                   
 

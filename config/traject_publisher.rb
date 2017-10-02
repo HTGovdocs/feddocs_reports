@@ -41,3 +41,5 @@ to_field "language", marc_languages("008[35-37]:041a:041d:041e:041j")
 #title
 to_field "title",       extract_marc("245a", :trim_punctuation => true)
 
+#digitization date
+to_field "dig_date",     extract_marc("974d")
