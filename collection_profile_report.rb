@@ -146,6 +146,7 @@ summary = { num_bib_records:0,
             num_missing_language:0,
             num_monograph_holdings:0,
             num_serial_holdings:0,
+            num_rights:0,
             rpt_run_date:DateTime.now.strftime("%Y-%m-%d")}
 sudoc_count = 0
 item_count = 0
@@ -325,6 +326,7 @@ setComprehensiveness("Congressional Serial Set")
 setComprehensiveness("Civil Rights Commission")
 setComprehensiveness("Economic Report Of The President")
 
+summary[:num_rights] = rights_count.keys.count
 summjson.puts summary.to_json
 summ_out.puts "# of Bibliographic Records: #{summary[:num_bib_records]}"
 summ_out.puts "#{summary[:num_monographs]} monograph records. #{summary[:num_serials]} serial records."
