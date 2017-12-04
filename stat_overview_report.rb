@@ -24,13 +24,13 @@ open("sudoc_classes.txt").each do |line|
 end
 
 #  ht_2016-09-28.json  ht_2016-10-01.json  ht_2016-11-01.json  ht_2016-12-01.json  ht_2017-01-01.json  ht_2017-02-01.json`
-bibs_out = open(__dir__+"/reports/num_bibs.csv", "a")
+bibs_out = open(__dir__+"/reports/num_bibs.csv", "w")
 bibs_out.puts "Month,Monographs,Serials,Undefined"
 
-digo_out = open(__dir__+"/reports/num_dig.csv", "a")
+digo_out = open(__dir__+"/reports/num_dig.csv", "w")
 digo_out.puts "Month,Full View,Limited View"
 
-sudoc_out = open(__dir__+"/reports/num_sudocs.csv", "a")
+sudoc_out = open(__dir__+"/reports/num_sudocs.csv", "w")
 sudoc_out.puts "Month,"+sudoc_classes.join(",")
 
 #connect Mongoid
