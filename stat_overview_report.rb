@@ -11,7 +11,7 @@ deprecated_source_ids = {}
 
 # we need a list of currently deprecated source_ids
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :production)
+Mongoid.load!(ENV['MONGOID_CONF'], :production)
 Mongo::Logger.logger.level = ::Logger::FATAL
 SourceRecord.where(org_code:"miaahdl",
                    deprecated_timestamp:{"$exists":1}).no_timeout.pluck('source_id').each do | src_id |
@@ -34,7 +34,7 @@ sudoc_out = open(__dir__+"/reports/num_sudocs.csv", "w")
 sudoc_out.puts "Month,"+sudoc_classes.join(",")
 
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :development)
+Mongoid.load!(ENV['MONGOID_CONF'], :htonly)
 Mongo::Logger.logger.level = ::Logger::FATAL
 #indexes for htonly
 SourceRecord.index(:local_id=>1)

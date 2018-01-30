@@ -109,7 +109,7 @@ rep_dir = __dir__+"/reports/#{sr_date}_#{Time.now.strftime("%F")}"
 Dir.mkdir(rep_dir) unless File.exists? (rep_dir)
 
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :development)
+Mongoid.load!(ENV['MONGOID_CONF'], :htonly)
 Mongo::Logger.logger.level = ::Logger::FATAL
 
 #fix our local ids
@@ -315,7 +315,7 @@ PP.pp(leader, summ_out)
 
 # get some basic details of the Registry for comprehensiveness purposes
 # refactor!!!!
-Mongoid.load!("config/mongoid.yml", :production)
+Mongoid.load!(ENV['MONGOID_CONF'], :production)
 summary[:corpus_size] = RegistryRecord.where(deprecated_timestamp:{"$exists":0}).count
 summary[:corpus_percent] = summary[:num_unique_items].to_f / summary[:corpus_size].to_f * 100.0
 setComprehensiveness("Congressional Record")

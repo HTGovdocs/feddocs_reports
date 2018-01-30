@@ -13,14 +13,14 @@ SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :production)
+Mongoid.load!(ENV['MONGOID_CONF'], :production)
 Mongo::Logger.logger.level = ::Logger::FATAL
 @extractor = Traject::Indexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
 
-start = Moped::BSON::ObjectId.from_time(Time.new(2017,7,01))
-finish = Moped::BSON::ObjectId.from_time(Time.new(2017,10,01))
+start = Moped::BSON::ObjectId.from_time(Time.new(2017,10,01))
+finish = Moped::BSON::ObjectId.from_time(Time.new(2018,1,01))
 numhts = 0
 base_url = "https://catalog.hathitrust.org/Record/"
 SourceRecord.where(org_code:"miaahdl",
@@ -36,7 +36,7 @@ SourceRecord.where(org_code:"miaahdl",
   # we only want it if the holding is actually new
   new = false
   rec['dig_date'].each do |dig|
-    if dig.to_i >= 20170701 and dig.to_i < 20171001
+    if dig.to_i >= 20171001 and dig.to_i < 20180101
       new = true
     end
   end
