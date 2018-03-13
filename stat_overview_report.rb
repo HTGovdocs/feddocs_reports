@@ -1,4 +1,5 @@
 # reports will be generated in a new directory in reports
+# bundle exec ruby stat_overview_report.rb
 require 'registry/registry_record'
 require 'registry/source_record'
 require 'pp'
