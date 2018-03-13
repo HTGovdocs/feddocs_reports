@@ -19,8 +19,8 @@ Mongo::Logger.logger.level = ::Logger::FATAL
 @extractor.load_config_file('config/traject_publisher.rb')
 
 
-start = Moped::BSON::ObjectId.from_time(Time.new(2017,10,01))
-finish = Moped::BSON::ObjectId.from_time(Time.new(2018,1,01))
+start = Moped::BSON::ObjectId.from_time(Time.new(2018,1,01))
+finish = Moped::BSON::ObjectId.from_time(Time.new(2018,4,01))
 numhts = 0
 base_url = "https://catalog.hathitrust.org/Record/"
 SourceRecord.where(org_code:"miaahdl",
@@ -44,36 +44,11 @@ SourceRecord.where(org_code:"miaahdl",
     next
   end
 
-  #title
-  if rec['title']
-    title = rec['title'].join(' ')
-  else
-    title = ''
-  end
-
-  #Author
-  if rec['author']
-    author = rec['author'].join(' ')
-  else
-    author = ''
-  end
-
-  #Publisher
-  if rec['publisher']
-    publisher = rec['publisher'].join(' ')
-  else
-    publisher = ''
-  end
-
-  #Publication Date
-  pubdate = rec['pub_date'] || ""
-
-  #SuDoc number (if available)
-  if s.sudocs.count == 0 
-    sudoc = ""
-  else
-    sudoc = s.sudocs.join(', ')
-  end
+  title = (rec['title'] || []).join(', ')
+  author = (rec['author'] || []).join(' ')
+  publisher = (rec['publisher'] || []).join(' ')
+  pubdate = (rec['pub_date'] || []).join(', ')
+  sudoc = (s.sudocs || []).join(', ')
 
   #Digitization Agent
   #assuming only one for a new record
