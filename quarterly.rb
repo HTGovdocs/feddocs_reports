@@ -27,16 +27,15 @@ SourceRecord.where(org_code:"miaahdl",
                   deprecated_timestamp:{"$exists":0},
                   :_id.gte => start,
                   :_id.lt => finish).no_timeout.each do | s |
-  if s.source['leader'] !~ /^.{7}m/
-    next
-  end
+  next unless s.monograph?
+
   marc = MARC::Record.new_from_hash(s.source) 
   rec = @extractor.map_record(marc)
   
   # we only want it if the holding is actually new
   new = false
   rec['dig_date'].each do |dig|
-    if dig.to_i >= 20171001 and dig.to_i < 20180101
+    if dig.to_i >= 20180101 and dig.to_i < 20180401
       new = true
     end
   end
