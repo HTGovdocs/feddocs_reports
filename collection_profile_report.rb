@@ -1,5 +1,5 @@
 # to run: 
-# bundle exec ruby ht_extract.rb data/<ht source date>
+# bundle exec ruby collection_profile.rb data/<ht source date>
 # reports will be generated in a new directory in reports
 require 'registry/registry_record'
 require 'registry/source_record'
@@ -24,7 +24,7 @@ def setComprehensiveness( series )
   end
 
   #use specified source date with database htonly
-  Mongoid.override_database("htonly")
+  Mongoid.override_database(DBNAME)
   ht_ids.each do | ids |
     #look in the archived source records for these ht_ids
     if SourceRecord.where(local_id:{"$in":ids}).count > 0
@@ -99,17 +99,20 @@ def normalizePubPlace( place )
 end
 
  
-#load the HT we want to work with
-source_records = ARGV.shift
-`mongo htonly --eval "db.dropDatabase()"`
-`mongoimport --db htonly --collection source_records --file #{source_records}`
+# select the HT we want to work with
+# We want something like: 
+# zephir_20180401
+sr_date = ARGV.shift
+DBNAME = "zephir_#{sr_date.gsub(/-/, '')}"
+
 # Make our report directory if it doesn't already exist
-sr_date = source_records.split('_')[1].split('.')[0]
 rep_dir = __dir__+"/reports/#{sr_date}_#{Time.now.strftime("%F")}"
 Dir.mkdir(rep_dir) unless File.exists? (rep_dir)
 
 #connect Mongoid
 Mongoid.load!(ENV['MONGOID_CONF'], :htonly)
+# immediately override the database for our source date
+Mongoid.override_database(DBNAME)
 Mongo::Logger.logger.level = ::Logger::FATAL
 
 #fix our local ids
@@ -316,6 +319,7 @@ PP.pp(leader, summ_out)
 # get some basic details of the Registry for comprehensiveness purposes
 # refactor!!!!
 Mongoid.load!(ENV['MONGOID_CONF'], :production)
+Mongoid.override_database('htgd')
 summary[:corpus_size] = RegistryRecord.where(deprecated_timestamp:{"$exists":0}).count
 summary[:corpus_percent] = summary[:num_unique_items].to_f / summary[:corpus_size].to_f * 100.0
 setComprehensiveness("Congressional Record")
