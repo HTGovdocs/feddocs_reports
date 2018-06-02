@@ -1,5 +1,5 @@
 # to run: 
-# bundle exec ruby collection_profile.rb data/<ht source date>
+# bundle exec ruby collection_profile.rb <2018-06-01>>
 # reports will be generated in a new directory in reports
 require 'registry/registry_record'
 require 'registry/source_record'
