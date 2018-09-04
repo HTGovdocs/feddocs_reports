@@ -49,9 +49,9 @@ Dir.new(__dir__+"/data").sort.each do | s_f |
   next if s_f !~ /ht.*01.json/
 
   sr_date = s_f.split('_')[1].split('.')[0].split('-')[0,2].join('-')
-  DBNAME = "zephir_#{sr_date.gsub(/-/, '')}01"
-  puts DBNAME
-  Mongoid.override_database(DBNAME)
+  @dbname = "zephir_#{sr_date.gsub(/-/, '')}01"
+  puts @dbname
+  Mongoid.override_database(@dbname)
 
   num_full_text = 0
   num_not_full_text = 0
