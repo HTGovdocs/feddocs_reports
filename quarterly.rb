@@ -19,8 +19,8 @@ Mongo::Logger.logger.level = ::Logger::FATAL
 @extractor.load_config_file('config/traject_publisher.rb')
 
 
-start = Moped::BSON::ObjectId.from_time(Time.new(2018,1,01))
-finish = Moped::BSON::ObjectId.from_time(Time.new(2018,4,01))
+start = Moped::BSON::ObjectId.from_time(Time.new(2018,4,01))
+finish = Moped::BSON::ObjectId.from_time(Time.new(2018,7,01))
 numhts = 0
 base_url = "https://catalog.hathitrust.org/Record/"
 SourceRecord.where(org_code:"miaahdl",
@@ -33,9 +33,10 @@ SourceRecord.where(org_code:"miaahdl",
   rec = @extractor.map_record(marc)
   
   # we only want it if the holding is actually new
+  # dig_date is actually date of last update
   new = false
   rec['dig_date'].each do |dig|
-    if dig.to_i >= 20180101 and dig.to_i < 20180401
+    if dig.to_i >= 20180401 and dig.to_i < 20180701
       new = true
     end
   end
