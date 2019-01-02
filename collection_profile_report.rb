@@ -132,7 +132,7 @@ rights = YAML.load_file(__dir__+'/mappings/rights.yml')
 sudoc_auth = YAML.load_file(__dir__+'/mappings/sudoc_stems.yml')
 
 # Use traject for a few fields
-@extractor = Traject::Indexer.new
+@extractor = Traject::Indexer::MarcIndexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
 summary = { num_bib_records:0, 

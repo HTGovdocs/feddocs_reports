@@ -42,7 +42,7 @@ SourceRecord.index(:local_id=>1)
 SourceRecord.create_indexes
 
 # Use traject for a few fields
-@extractor = Traject::Indexer.new
+@extractor = Traject::Indexer::MarcIndexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
 Dir.new(__dir__+"/data").sort.each do | s_f |

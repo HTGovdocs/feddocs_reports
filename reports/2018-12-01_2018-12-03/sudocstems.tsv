@@ -1,0 +1,800 @@
+Y 4	86510	Congress
+Y 3	26389	Congress
+A 13	12990	Agriculture
+Y 1	10295	Congress
+NAS 1	10110	National Aeronautics and Space Administration
+I 28	9533	Interior Department
+C 3	8457	Commerce Department
+HE 20	8380	Health and Human Services Department
+D 101	7035	Defense Department
+I 19	6889	Interior Department
+A 1	6780	Agriculture
+GA 1	6168	Government Accountability Office
+S 1	4766	State Department
+C 13	4220	Commerce Department
+EP 1	3795	Environmental protection Agency
+D 301	3665	Defense Department
+ED 1	3124	Education Department
+I 49	2853	Interior Department
+S 9	2725	State Department
+HH 10	2692	Housing and Urban Development Department
+L 2	2654	Labor Department
+C 55	2344	Commerce Department
+I 29	2148	Interior Department
+D 103	1992	Defense Department
+E 1	1803	Energy Department
+I 1	1660	Interior Department
+A 57	1537	Agriculture
+HH 1	1326	Housing and Urban Development Department
+PREX 3	1220	Executive Office of the President
+A 17	1208	Agriculture
+TD 2	1164	Transportation Department
+AE 2	1159	National Archives and Records Administration
+FEM 1	1118	
+J 1	1045	Justice Department
+C 22	1017	Commerce Department
+FS 5	1014	
+J 28	992	Justice Department
+C 18	866	Commerce Department
+GS 4	852	General Services Administration
+C 61	839	Commerce Department
+L 1	775	Labor Department
+SI 1	769	Smithsonian Institution
+ITC 1	752	International Trade Commission
+I 53	748	Interior Department
+TD 4	722	Transportation Department
+TD 1	693	Transportation Department
+D 1	644	Defense Department
+A 93	641	Agriculture
+TC 1	625	
+TD 8	613	Transportation Department
+SBA 1	604	Small Business Administration
+I 27	597	Interior Department
+T 22	590	Treasury Department
+Y 10	586	Congress
+D 5	584	Defense Department
+VA 1	572	Veterans Affairs Department
+HE 19	526	Health and Human Services Department
+C 1	526	Commerce Department
+TD 7	524	Transportation Department
+J 26	522	Justice Department
+C 56	464	Commerce Department
+J 32	462	Justice Department
+TD 5	455	Transportation Department
+PM 1	446	Personnel Management Office
+CR 1	446	Civil Rights Commission
+J 29	430	Justice Department
+HE 1	420	Health and Human Services Department
+L 37	416	Labor Department
+L 13	412	Labor Department
+D 207	408	Defense Department
+HE 23	407	Health and Human Services Department
+D 114	406	Defense Department
+LC 1	374	Library of Congress
+FS 2	373	
+D 214	348	Defense Department
+L 35	345	Labor Department
+NS 1	344	National Science Foundation
+L 38	312	Labor Department
+ER 1	310	
+SI 3	309	Smithsonian Institution
+L 36	307	Labor Department
+C 4	306	Commerce Department
+PREX 1	305	Executive Office of the President
+HE 22	290	Health and Human Services Department
+D 206	287	Defense Department
+AE 1	283	National Archives and Records Administration
+D 201	281	Defense Department
+A 77	280	Agriculture
+EP 2	278	Environmental protection Agency
+E 3	272	Energy Department
+CS 1	272	
+LC 14	262	Library of Congress
+HE 3	262	Health and Human Services Department
+C 57	257	Commerce Department
+C 30	247	Commerce Department
+FT 1	243	Federal Trade Commission
+P 1	236	United States Postal Service
+T 17	233	Treasury Department
+PR 32	229	President of the United States
+C 46	228	Commerce Department
+A 4	223	Agriculture
+A 88	219	Agriculture
+FR 1	217	Federal Reserve System Board of Governors
+PREX 2	212	Executive Office of the President
+JU 13	210	Judiciary
+C 41	206	Commerce Department
+I 20	206	Interior Department
+T 1	202	Treasury Department
+EP 5	198	Environmental protection Agency
+L 29	192	Labor Department
+A 105	192	Agriculture
+A 92	189	Agriculture
+PR 40	189	President of the United States
+S 18	180	State Department
+C 31	178	Commerce Department
+L 16	175	Labor Department
+LC 19	175	Library of Congress
+FW 4	174	
+C 51	174	Commerce Department
+HE 5	169	Health and Human Services Department
+A 98	168	Agriculture
+D 208	167	Defense Department
+PE 1	163	Peace Corps
+A 36	159	Agriculture
+FS 3	158	
+A 10	157	Agriculture
+IC 1	157	Interstate Commerce Commission
+FS 14	156	
+C 42	153	Commerce Department
+NF 3	153	National Foundation on the Arts and the Humanities
+SSA 1	151	Social Security Administration
+A 67	150	Agriculture
+C 21	148	Commerce Department
+TD 3	148	Transportation Department
+A 101	139	Agriculture
+I 16	135	Interior Department
+FS 13	130	
+LC 3	129	Library of Congress
+NF 2	129	National Foundation on the Arts and the Humanities
+GS 1	129	General Services Administration
+J 24	127	Justice Department
+HE 17	126	Health and Human Services Department
+I 72	124	Interior Department
+AA 1	124	
+LC 30	124	Library of Congress
+A 9	123	Agriculture
+D 7	123	Defense Department
+C 59	123	Commerce Department
+C 39	122	Commerce Department
+PR 42	120	President of the United States
+C 47	120	Commerce Department
+W 1	118	
+EP 6	117	Environmental protection Agency
+C 60	116	Commerce Department
+E 2	114	Energy Department
+D 305	113	Defense Department
+A 5	110	Agriculture
+GP 3	107	Government Printing Office
+D 2	106	Defense Department
+J 21	106	Justice Department
+PR 36	106	President of the United States
+T 70	104	Treasury Department
+EP 4	104	Environmental protection Agency
+A 56	100	Agriculture
+D 217	99	Defense Department
+JU 10	99	Judiciary
+FE 1	98	
+D 210	95	Defense Department
+D 209	94	Defense Department
+PR 37	91	President of the United States
+A 19	90	Agriculture
+A 82	90	Agriculture
+FS 17	89	
+Y 7	88	Congress
+T 63	86	Treasury Department
+PR 39	85	President of the United States
+EP 7	84	Environmental protection Agency
+L 5	81	Labor Department
+PREX 14	78	Executive Office of the President
+PREX 26	77	Executive Office of the President
+SI 8	77	Smithsonian Institution
+SE 1	75	Securities and Exchange Commission
+PRVP 42	73	Vice President of the United States
+CC 1	73	Federal Communications Commission
+MS 1	72	Merit Systems Protection Board
+A 106	72	Agriculture
+D 105	70	Defense Department
+A 110	69	Agriculture
+CSA 1	69	
+I 70	68	Interior Department
+D 104	67	Defense Department
+I 33	66	Interior Department
+NMB 1	65	National Mediation Board
+D 12	64	Defense Department
+LR 1	63	National Labor Relations Board
+HS 5	62	Homeland Security
+AC 1	61	
+J 16	60	Justice Department
+SI 6	59	Smithsonian Institution
+A 62	58	Agriculture
+C 6	58	Commerce Department
+D 211	57	Defense Department
+FP 1	57	
+C 52	56	Commerce Department
+D 110	56	Defense Department
+GP 1	56	Government Printing Office
+L 7	55	Labor Department
+GS 2	55	General Services Administration
+NCU 1	55	National Credit Union Administration
+D 14	55	Defense Department
+I 69	54	Interior Department
+C 40	52	Commerce Department
+I 66	52	Interior Department
+PREX 10	49	Executive Office of the President
+J 34	47	Justice Department
+C 37	47	Commerce Department
+TD 11	47	Transportation Department
+HE 24	46	Health and Human Services Department
+TD 10	46	Transportation Department
+IA 1	45	
+PREX 23	44	Executive Office of the President
+PR 41	44	President of the United States
+SI 2	44	Smithsonian Institution
+A 68	43	Agriculture
+LC 26	43	Library of Congress
+E 4	42	Energy Department
+D 15	41	Defense Department
+T 12	41	Treasury Department
+E 6	40	Energy Department
+I 67	39	Interior Department
+S 5	39	State Department
+LC 39	38	Library of Congress
+A 7	37	Agriculture
+A 21	37	Agriculture
+PREX 8	37	Executive Office of the President
+A 43	37	Agriculture
+PR 43	35	President of the United States
+EP 3	34	Environmental protection Agency
+D 102	34	Defense Department
+T 66	33	Treasury Department
+GS 12	33	General Services Administration
+PR 33	33	President of the United States
+PR 34	33	President of the United States
+HE 21	33	Health and Human Services Department
+D 221	32	Defense Department
+PREX 9	32	Executive Office of the President
+L 40	31	Labor Department
+CAB 1	31	
+T 27	30	Treasury Department
+PR 35	30	President of the United States
+PREX 22	30	Executive Office of the President
+N 6	29	
+GS 6	29	General Services Administration
+A 112	28	Agriculture
+J 25	28	Justice Department
+A 107	28	Agriculture
+D 213	28	Defense Department
+E 5	28	Energy Department
+FCA 1	28	Farm Credit Administration
+LC 2	27	Library of Congress
+D 202	27	Defense Department
+A 109	27	Agriculture
+RR 1	27	Railroad Retirement Board
+LC 4	27	Library of Congress
+A 103	26	Agriculture
+W 7	26	
+C 58	26	Commerce Department
+T 28	26	Treasury Department
+W 49	25	
+A 94	25	Agriculture
+W 109	25	
+W 3	25	
+PREX 7	25	Executive Office of the President
+SI 11	25	Smithsonian Institution
+S 19	24	State Department
+HE 25	24	Health and Human Services Department
+LC 33	24	Library of Congress
+D 119	24	Defense Department
+A 104	23	Agriculture
+HS 1	23	Homeland Security
+L 22	23	Labor Department
+A 89	23	Agriculture
+SI 13	23	Smithsonian Institution
+D 203	22	Defense Department
+I 71	21	Interior Department
+A 84	21	Agriculture
+A 47	20	Agriculture
+FHL 1	20	
+A 111	19	Agriculture
+C 63	19	Commerce Department
+D 106	19	Defense Department
+NF 4	18	National Foundation on the Arts and the Humanities
+NC 2	18	National Capital Planning Commission
+J 23	18	Justice Department
+AA 4	17	
+J 36	17	Justice Department
+D 10	17	Defense Department
+FS 1	17	
+FS 9	17	
+JU 7	17	Judiciary
+LC 42	17	Library of Congress
+NA 1	17	
+D 109	16	Defense Department
+HS 8	15	Homeland Security
+HH 13	15	Housing and Urban Development Department
+T 47	15	Treasury Department
+N 1	15	
+PREX 4	15	Executive Office of the President
+D 304	15	Defense Department
+W 2	15	
+TD 9	15	Transportation Department
+MC 1	14	
+A 3	14	Agriculture
+W 77	14	
+PREX 12	14	Executive Office of the President
+A 6	14	Agriculture
+LC 41	14	Library of Congress
+J 31	14	Justice Department
+L 20	14	Labor Department
+FAA 1	14	
+LC 24	14	Library of Congress
+JU 6	14	Judiciary
+C 62	14	Commerce Department
+FS 4	13	
+I 24	13	Interior Department
+LC 1016	13	Library of Congress
+L 23	13	Labor Department
+PREX 15	13	Executive Office of the President
+SI 9	13	Smithsonian Institution
+T 34	13	Treasury Department
+PR 38	13	President of the United States
+PREX 17	13	Executive Office of the President
+PREX 20	13	Executive Office of the President
+HH 2	12	Housing and Urban Development Department
+MS 2	12	Merit Systems Protection Board
+EP 8	12	Environmental protection Agency
+D 3	12	Defense Department
+TD 12	12	Transportation Department
+LC 40	12	Library of Congress
+LC 5	12	Library of Congress
+C 11	11	Commerce Department
+EP 11	11	Environmental protection Agency
+D 302	11	Defense Department
+HS 4	11	Homeland Security
+HS 7	11	Homeland Security
+FMC 1	11	Federal Maritime Commission
+MN 6330	10	
+PR 30	10	President of the United States
+A 26	10	Agriculture
+A 80	10	Agriculture
+C 5	10	Commerce Department
+FW 1	10	
+LC 17	10	Library of Congress
+LC 29	10	Library of Congress
+C 23	9	Commerce Department
+LGA 912	9	
+D 205	9	Defense Department
+A 27	9	Agriculture
+A 108	9	Agriculture
+D 216	9	Defense Department
+GS 11	9	General Services Administration
+L 39	9	Labor Department
+FW 2	9	
+W 79	9	
+A 22	9	Agriculture
+I 35	9	Interior Department
+LC 25	9	Library of Congress
+FA 1	9	Fine Arts Commission
+A 85	8	Agriculture
+A 55	8	Agriculture
+W 73	8	
+ID 1	8	US Agency for International Development
+S 7	8	State Department
+JU 11	8	Judiciary
+S 17	8	State Department
+S 3	8	State Department
+I 21	8	Interior Department
+C 25	8	Commerce Department
+CZ 1	8	
+LC 6	8	Library of Congress
+JU 2	8	Judiciary
+A 72	8	Agriculture
+HH 7	8	Housing and Urban Development Department
+LC 35	8	Library of Congress
+C 45	7	Commerce Department
+LC 9	7	Library of Congress
+C 10	7	Commerce Department
+T 71	7	Treasury Department
+NA 2	7	
+FS 6	7	
+D 108	7	Defense Department
+AA 3	7	
+I 18	7	Interior Department
+FO 1	6	
+N 10	6	
+HH 14	6	Housing and Urban Development Department
+W 44	6	
+PR 31	6	President of the United States
+LC 23	6	Library of Congress
+JU 3	6	Judiciary
+C 7	6	Commerce Department
+D 218	6	Defense Department
+N 11	6	
+D 212	6	Defense Department
+SS 1	6	
+LC 43	6	Library of Congress
+HE 18	6	Health and Human Services Department
+OP 1	6	Overseas Private Investment Corporation
+FS 15	5	
+I 64	5	Interior Department
+T 33	5	Treasury Department
+PA 1	5	
+C 35	5	Commerce Department
+A 29	5	Agriculture
+N 28	5	
+J 38	5	Justice Department
+B 1	5	Broadcasting Board of Governors
+A 113	5	Agriculture
+W 42	5	
+W 34	5	
+PR 44	5	President of the United States
+SI 14	5	Smithsonian Institution
+I 23	5	Interior Department
+W 11	5	
+FCD 1	5	
+C 14	5	Commerce Department
+FL 5	5	
+FS 10	5	
+PREX 18	5	Executive Office of the President
+FM 1	5	Federal Mediation and Conciliation Service
+SI 4	5	Smithsonian Institution
+LC 12	5	Library of Congress
+H 10	4	
+CA 1	4	
+A 66	4	Agriculture
+AA 2	4	
+FW 3	4	
+D 4	4	Defense Department
+C 54	4	Commerce Department
+C 48	4	Commerce Department
+C 9	4	Commerce Department
+L 34	4	Labor Department
+A 100	4	Agriculture
+PREX 13	4	Executive Office of the President
+AR 1	4	
+N 17	4	
+X 1	4	Congress
+EP 10	4	Environmental protection Agency
+J 27	4	Justice Department
+PREX 6	4	Executive Office of the President
+C 43	4	Commerce Department
+ES 3	4	
+I 63	4	Interior Department
+NASA 1	4	
+W 10	4	
+SI 7	4	Smithsonian Institution
+DP 1	3	
+CNF 53	3	
+I 44	3	Interior Department
+FS 16	3	
+I 7	3	Interior Department
+M 105	3	
+I 22	3	Interior Department
+Z 2	3	
+A 11	3	Agriculture
+P 4	3	United States Postal Service
+T 9	3	Treasury Department
+D 111	3	Defense Department
+L 25	3	Labor Department
+NC 3	3	National Capital Planning Commission
+L 3	3	Labor Department
+Y 9	3	Congress
+I 12	3	Interior Department
+W 108	3	
+T 11	3	Treasury Department
+HH 3	3	Housing and Urban Development Department
+D 219	3	Defense Department
+N 13	3	
+PREX 28	3	Executive Office of the President
+NHA 2	3	
+A 114	3	Agriculture
+Y 2	3	Congress
+I 48	3	Interior Department
+D 118	3	Defense Department
+T 5	3	Treasury Department
+D 215	3	Defense Department
+GB 1	3	
+T 56	3	Treasury Department
+W 70	3	
+II 1	3	
+L 28	3	Labor Department
+C 50	3	Commerce Department
+NS 2	3	National Science Foundation
+ICA 1	3	
+M 216	3	
+FL 2	3	
+W 110	3	
+M 203	2	
+A 30	2	Agriculture
+A 59	2	Agriculture
+N 20	2	
+T 19	2	Treasury Department
+RNB 1	2	
+HE 30	2	Health and Human Services Department
+W 5	2	
+I 10	2	Interior Department
+FS 11	2	
+NHA 1	2	
+FS 7	2	
+A 48	2	Agriculture
+HH 12	2	Housing and Urban Development Department
+W 26	2	
+DC 18	2	
+W 75	2	
+SI 18	2	Smithsonian Institution
+N 29	2	
+T 37	2	Treasury Department
+FAA 4	2	
+M 501	2	
+T 62	2	Treasury Department
+M 210	2	
+C 15	2	Commerce Department
+GS 14	2	General Services Administration
+D 116	2	Defense Department
+GS 8	2	General Services Administration
+DC 1	2	
+A 2	2	Agriculture
+M 301	2	
+T 21	2	Treasury Department
+W 12	2	
+C 8	2	Commerce Department
+Y 5	2	Congress
+FF 1	2	
+A 96	2	Agriculture
+PR 28	2	President of the United States
+W 100	2	
+T 25	2	Treasury Department
+J 35	2	Justice Department
+M 110	2	
+FAA 5	2	
+TD 13	2	Transportation Department
+I 73	2	Interior Department
+PREX 24	2	Executive Office of the President
+L 33	2	Labor Department
+I 52	2	Interior Department
+S 22	2	State Department
+PREX 16	2	Executive Office of the President
+W 39	2	
+T 32	2	Treasury Department
+L 15	2	Labor Department
+T 51	2	Treasury Department
+S 6	2	State Department
+T 15	2	Treasury Department
+L 8	2	Labor Department
+JU 9	2	Judiciary
+N 27	2	
+GS 13	2	General Services Administration
+A 102	2	Agriculture
+N 16	2	
+C 3261	2	Commerce Department
+F 2	2	
+A 42	1	Agriculture
+A 73	1	Agriculture
+GE 1	1	
+LC 37	1	Library of Congress
+UNI 1	1	
+L 18	1	Labor Department
+AG 1	1	
+E 11	1	Energy Department
+NF 1	1	National Foundation on the Arts and the Humanities
+I 31	1	Interior Department
+L 32	1	Labor Department
+LC 38	1	Library of Congress
+W 91	1	
+H 914	1	
+I 36	1	Interior Department
+C 103	1	Commerce Department
+OAR 48	1	
+U 19	1	
+E 50	1	Energy Department
+I 19013	1	Interior Department
+FW 5	1	
+H 20	1	
+LC 31	1	Library of Congress
+U 2700	1	
+I 47	1	Interior Department
+OUC 1	1	
+X 95	1	Congress
+TD 898	1	Transportation Department
+C 44	1	Commerce Department
+C 32	1	Commerce Department
+C 17	1	Commerce Department
+C 49	1	Commerce Department
+T 18	1	Treasury Department
+D 120	1	Defense Department
+MB 1	1	
+HH 20	1	Housing and Urban Development Department
+T 49	1	Treasury Department
+A 46	1	Agriculture
+SB 11	1	
+N 9	1	
+W 13	1	
+N 21	1	
+W 600	1	
+CO 84	1	
+I 9	1	Interior Department
+A 1620	1	Agriculture
+OAG 1	1	
+OAD 142	1	
+FEM 2	1	
+HH 6	1	Housing and Urban Development Department
+M 101	1	
+Y 8	1	Congress
+FR 4	1	Federal Reserve System Board of Governors
+I 191	1	Interior Department
+WT 1	1	
+A 75	1	Agriculture
+WHO 1	1	
+PA 2	1	
+PCO 1	1	
+A 1388	1	Agriculture
+PR 29	1	President of the United States
+W 46	1	
+OCM 107	1	
+PL 67	1	
+RP 15	1	
+I 219	1	Interior Department
+Y 200	1	Congress
+ED 12	1	Education Department
+Y 215	1	Congress
+W 87	1	
+AS 7	1	
+I 43	1	Interior Department
+NHA 3	1	
+PR 26	1	President of the United States
+A 35	1	Agriculture
+J 250	1	Justice Department
+A 1170	1	Agriculture
+SQ 4	1	
+A 12	1	Agriculture
+WA 333	1	
+F 13	1	
+NHA 4	1	
+I 5	1	Interior Department
+OCM 1	1	
+SE 20	1	Securities and Exchange Commission
+T 8	1	Treasury Department
+I 17	1	Interior Department
+FS 12	1	
+C 24	1	Commerce Department
+FS 8	1	
+FS 22	1	
+W 30	1	
+T 30	1	Treasury Department
+H 57	1	
+L 47	1	Labor Department
+T 35	1	Treasury Department
+RS 3	1	
+G 70	1	
+A 87	1	Agriculture
+N 12	1	
+W 29	1	
+FL 3	1	
+L 14	1	Labor Department
+A 28	1	Agriculture
+U 28	1	
+JU 4	1	Judiciary
+W 54	1	
+F 55	1	
+LC 10	1	Library of Congress
+T 4	1	Treasury Department
+HE 202110	1	Health and Human Services Department
+WY 156	1	
+I 92	1	Interior Department
+Z 3	1	
+P 7	1	United States Postal Service
+HE 81	1	Health and Human Services Department
+S 4	1	State Department
+SB 1	1	
+SI 12	1	Smithsonian Institution
+N 15	1	
+Y 22	1	Congress
+P 19	1	United States Postal Service
+W 105	1	
+C 2	1	Commerce Department
+I 25	1	Interior Department
+A 76	1	Agriculture
+T 64	1	Treasury Department
+DC 55	1	
+D 220	1	Defense Department
+W 107	1	
+S 21	1	State Department
+N 18	1	
+T 24	1	Treasury Department
+TA 1	1	
+TS 2	1	
+A 39	1	Agriculture
+T 68	1	Treasury Department
+W 43	1	
+NAS 11	1	National Aeronautics and Space Administration
+M 112	1	
+ITC 2	1	International Trade Commission
+NC 1	1	National Capital Planning Commission
+DC 21	1	
+T 26	1	Treasury Department
+GA 113	1	Government Accountability Office
+G 51	1	
+GAO 1	1	
+FTZ 1	1	Foreign-Trade Zones Board
+L 27	1	Labor Department
+PREX 25	1	Executive Office of the President
+T 41	1	Treasury Department
+FC 1	1	
+TD 398	1	Transportation Department
+M 113	1	
+S 16	1	State Department
+PRVP 41	1	Vice President of the United States
+JU 14	1	Judiciary
+B 19	1	Broadcasting Board of Governors
+A 90	1	Agriculture
+GS 3	1	General Services Administration
+M 209	1	
+PR 3638	1	President of the United States
+A 38	1	Agriculture
+PREX 5	1	Executive Office of the President
+C 123	1	Commerce Department
+C 12	1	Commerce Department
+W 4	1	
+RL 1	1	
+Y 44	1	Congress
+L 6	1	Labor Department
+M 115	1	
+D 113	1	Defense Department
+PAC 1	1	
+A 18	1	Agriculture
+I 74	1	Interior Department
+AA 9	1	
+A 49	1	Agriculture
+N 14	1	
+SB 2	1	
+PRVP 44	1	Vice President of the United States
+H 4	1	
+A 32	1	Agriculture
+J 37	1	Justice Department
+I 2823	1	Interior Department
+N 2	1	
+EC 1	1	
+W 97	1	
+D 112	1	Defense Department
+Y 11	1	Congress
+PREX 43	1	Executive Office of the President
+D 303	1	Defense Department
+A 53	1	Agriculture
+EB 1	1	
+G 13	1	
+B 211	1	Broadcasting Board of Governors
+HE 6502	1	Health and Human Services Department
+J 10	1	Justice Department
+S 20	1	State Department
+D 13	1	Defense Department
+D 117	1	Defense Department
+PVRP 42	1	
+DC 17	1	
+JA 1	1	
+I 42	1	Interior Department
+TD 48	1	Transportation Department
+DT 378	1	
+D 11	1	Defense Department
+FAA 7	1	
+N 7	1	
+T 3	1	Treasury Department
+EP 116	1	Environmental protection Agency
+T 67	1	Treasury Department
+FW 6	1	
+FAA 8	1	
+M 401	1	
+I 1198	1	Interior Department
+E 19	1	Energy Department
+I 11	1	Interior Department
+C 134	1	Commerce Department
+L 31	1	Labor Department
+I 13	1	Interior Department
+PRVP 40	1	Vice President of the United States
+C 28	1	Commerce Department
+C 53	1	Commerce Department
+N 24	1	
+L 26	1	Labor Department
+M 103	1	
+I 68	1	Interior Department
+U 3	1	
+HE 8202	1	Health and Human Services Department
+GS 215	1	General Services Administration
+TD 6	1	Transportation Department
+SI 62	1	Smithsonian Institution
+JUL 3	1	
+VB 1	1	
+A 95	1	Agriculture
+NMC 1	1	
+TF 2	1	
+DC 9	1	
