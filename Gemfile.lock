@@ -6,9 +6,9 @@ GIT
 
 GIT
   remote: https://github.com/HTGovdocs/filter.git
-  revision: b07b6bcbce016c4ccbdff36f9167cb5bbe7fabf2
+  revision: 1d735304185b95ff89f90e598edd3d95698cd048
   specs:
-    filter (0.4.1)
+    filter (0.5)
       dotenv
       google-api-client (= 0.11.2)
 
@@ -35,9 +35,9 @@ GIT
 
 GIT
   remote: https://github.com/HTGovdocs/registry.git
-  revision: 5fc22b45c70c5127588cc26a67285296700f9c04
+  revision: 158e4b5a48eed7546d6832c479e8961e84271f68
   specs:
-    registry (0.18.1)
+    registry (0.19)
       dotenv
       library_stdnums (~> 1.0.2)
       marc
@@ -126,9 +126,9 @@ GEM
     multi_json (1.13.1)
     multipart-post (2.0.0)
     mysql2 (0.5.2)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    os (1.0.0)
+    os (1.0.1)
     public_suffix (3.0.3)
     rake (12.3.2)
     representable (3.0.4)
@@ -142,7 +142,7 @@ GEM
       rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.2)
+    rspec-expectations (3.8.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
@@ -158,7 +158,7 @@ GEM
       multi_json (~> 1.10)
     slop (3.6.0)
     thread_safe (0.3.6)
-    traject (3.0.0)
+    traject (3.1.0)
       concurrent-ruby (>= 0.8.0)
       dot-properties (>= 0.1.1)
       hashie (~> 3.1)
@@ -166,7 +166,7 @@ GEM
       httpclient (~> 2.5)
       marc (~> 1.0)
       marc-fastxmlwriter (~> 1.0)
-      nokogiri (~> 1.0)
+      nokogiri (~> 1.9)
       slop (>= 3.4.5, < 4.0)
       yell
     tzinfo (1.2.5)
@@ -174,7 +174,7 @@ GEM
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.6)
     yell (2.1.0)
 
 PLATFORMS
@@ -200,4 +200,4 @@ DEPENDENCIES
   viaf!
 
 BUNDLED WITH
-   1.17.1
+   2.0.1
