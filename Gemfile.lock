@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/HTGovdocs/ecmangle.git
-  revision: 1e96b553737f2b3a72ad40e68c974390a36ca20f
+  revision: 27d04591ed09e73ae56004f41e9d4523f94f7b18
   specs:
-    ecmangle (0.13)
+    ecmangle (0.15)
 
 GIT
   remote: https://github.com/HTGovdocs/filter.git
@@ -35,9 +35,9 @@ GIT
 
 GIT
   remote: https://github.com/HTGovdocs/registry.git
-  revision: 158e4b5a48eed7546d6832c479e8961e84271f68
+  revision: 073bd7fc351de4235b1d23e12e916802aa9747ef
   specs:
-    registry (0.19)
+    registry (0.19.1)
       dotenv
       library_stdnums (~> 1.0.2)
       marc
@@ -63,17 +63,17 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
-    bson (4.4.2)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    bson (4.5.0)
     concurrent-ruby (1.1.5)
     declarative (0.0.10)
     declarative-option (0.1.0)
     diff-lcs (1.3)
-    domain_name (0.5.20180417)
+    domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dot-properties (0.1.3)
-    dotenv (2.7.2)
+    dotenv (2.7.5)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     google-api-client (0.11.2)
@@ -83,7 +83,7 @@ GEM
       mime-types (>= 3.0)
       representable (~> 3.0)
       retriable (>= 2.0, < 4.0)
-    googleauth (0.8.1)
+    googleauth (0.9.0)
       faraday (~> 0.12)
       jwt (>= 1.4, < 3.0)
       memoist (~> 0.16)
@@ -104,9 +104,9 @@ GEM
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    jwt (2.1.0)
+    jwt (2.2.1)
     library_stdnums (1.0.2)
-    marc (1.0.3)
+    marc (1.0.4)
       scrub_rb (>= 1.0.1, < 2)
       unf
     marc-fastxmlwriter (1.0.0)
@@ -117,20 +117,20 @@ GEM
     mime-types-data (3.2019.0331)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    mongo (2.8.0)
+    mongo (2.10.1)
       bson (>= 4.4.2, < 5.0.0)
-    mongoid (7.0.2)
+    mongoid (7.0.4)
       activemodel (>= 5.1, < 6.0.0)
       mongo (>= 2.5.1, < 3.0.0)
     moped (1.5.3)
     multi_json (1.13.1)
-    multipart-post (2.0.0)
+    multipart-post (2.1.1)
     mysql2 (0.5.2)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     os (1.0.1)
-    public_suffix (3.0.3)
-    rake (12.3.2)
+    public_suffix (4.0.1)
+    rake (12.3.3)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -140,16 +140,16 @@ GEM
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
       rspec-mocks (~> 3.8.0)
-    rspec-core (3.8.0)
+    rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.3)
+    rspec-expectations (3.8.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
-    rspec-mocks (3.8.0)
+    rspec-mocks (3.8.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
-    rspec-support (3.8.0)
-    rubyzip (1.2.2)
+    rspec-support (3.8.2)
+    rubyzip (1.2.3)
     scrub_rb (1.0.1)
     signet (0.11.0)
       addressable (~> 2.3)
@@ -175,7 +175,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
-    yell (2.1.0)
+    yell (2.2.0)
 
 PLATFORMS
   ruby
@@ -200,4 +200,4 @@ DEPENDENCIES
   viaf!
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
