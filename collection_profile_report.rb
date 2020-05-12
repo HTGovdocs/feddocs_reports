@@ -266,19 +266,16 @@ SourceRecord.where(org_code:"miaahdl",
       sudoc_stems[stem] += 1
       sudoc_classes[stem.split(' ')[0]] += 1
       #we'll add this stem for every pub year in the holdings
-      src.holdings.each do |ec, holdings|
-        holdings.each do |hold|
-          year_sudoc_classes[hold[:y]][m['stem'].split(' ')[0]] += 1
-          year_sudocs[hold[:y]][m['stem']] += 1
-        end
+      src.holdings.each do |u, h|
+        year_sudoc_classes[h[:y]][m['stem'].split(' ')[0]] += 1
+        year_sudocs[h[:y]][m['stem']] += 1
       end
 
     end
   end
 
   #holdings level counts
-  src.holdings.each do |ec, holdings|
-    holdings.each do |hold|
+  src.holdings.each do |ec, hold|
       summary[:num_digital_objects] += 1
       if rights.keys.include? hold[:r]
         rights_count[rights[hold[:r]]] += 1
@@ -311,7 +308,6 @@ SourceRecord.where(org_code:"miaahdl",
             hold[:y],
             ec].join("\t")
 =end
-    end
   end
 end
 PP.pp(leader, summ_out)

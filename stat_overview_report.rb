@@ -65,8 +65,9 @@ Dir.new(__dir__+"/data").sort.each do | s_f |
                     in_registry:true).no_timeout.each do | src |
     next if deprecated_source_ids.key? src.source_id
 
-    marc = MARC::Record.new_from_hash(src.source)
-    rec = @extractor.map_record(marc)
+    holdings = src.holdings
+    src.holdings = holdings
+    src.save
                     
     if src.source['leader'] =~ /^.{7}m/
       num_monos += 1
@@ -85,20 +86,14 @@ Dir.new(__dir__+"/data").sort.each do | s_f |
       end
     end
 
-    holdings_seen = []
-    src.holdings.each do |ec, holdings|
-      holdings.each do |hold|
-        #u is the id
-        next if holdings_seen.include? hold[:u]
-        holdings_seen << hold
-        if hold[:r] == "pd" or
-          hold[:r] == "pdus" or
-          hold[:r] == "und-world" or
-          hold[:r] =~ /^cc/
-          num_full_text += 1
-        else
-          num_not_full_text += 1
-        end
+    holdings.each do |htid, hold|
+      if hold[:r] == "pd" or
+        hold[:r] == "pdus" or
+        hold[:r] == "und-world" or
+        hold[:r] =~ /^cc/
+        num_full_text += 1
+      else
+        num_not_full_text += 1
       end
     end
   end #of this source record
