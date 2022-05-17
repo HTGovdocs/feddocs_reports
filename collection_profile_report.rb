@@ -9,7 +9,7 @@ require 'yaml'
 SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 
-def setComprehensiveness( series )
+def set_comprehensiveness( series )
   #some the ht_ids won't exist at time of HT source records run. 
   ht_ids = []
   #use current Production database ('htgd')
@@ -33,7 +33,7 @@ def setComprehensiveness( series )
   end
 end
 
-def normalizePubPlace( place )
+def normalize_pub_place( place )
   place.gsub!(/\(.*\)?/, '') #remove parentheses
   #junk
   place.gsub!(/\[ETC\]/, '')
@@ -243,7 +243,7 @@ SourceRecord.where(org_code:"miaahdl",
     rec['place_of_publication'].each do |place|
       place.upcase!
       place.gsub!(/\./,'')
-      place_of_publication[normalizePubPlace(place)] += 1
+      place_of_publication[normalize_pub_place(place)] += 1
     end 
   end
   if !rec['pub_date']
@@ -318,13 +318,13 @@ Mongoid.load!(ENV['MONGOID_CONF'], :production)
 Mongoid.override_database('htgd')
 summary[:corpus_size] = RegistryRecord.where(deprecated_timestamp:{"$exists":0}).count
 summary[:corpus_percent] = summary[:num_unique_items].to_f / summary[:corpus_size].to_f * 100.0
-setComprehensiveness("Congressional Record")
-setComprehensiveness("Statistical Abstract")
-setComprehensiveness("United States Reports")
-setComprehensiveness("Foreign Relations")
-setComprehensiveness("Congressional Serial Set")
-setComprehensiveness("Civil Rights Commission")
-setComprehensiveness("Economic Report Of The President")
+set_comprehensiveness("Congressional Record")
+set_comprehensiveness("Statistical Abstract")
+set_comprehensiveness("United States Reports")
+set_comprehensiveness("Foreign Relations")
+set_comprehensiveness("Congressional Serial Set")
+set_comprehensiveness("Civil Rights Commission")
+set_comprehensiveness("Economic Report Of The President")
 
 summary[:num_rights] = rights_count.keys.count
 summjson.puts summary.to_json
