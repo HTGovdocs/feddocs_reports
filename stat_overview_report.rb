@@ -8,6 +8,9 @@ require 'yaml'
 SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 
+# was a full rebuild requested?
+full_rebuild = (ARGV.shift == "full")
+
 deprecated_source_ids = {}
 
 # we need a list of currently deprecated source_ids
@@ -25,14 +28,21 @@ open("sudoc_classes.txt").each do |line|
 end
 
 #  ht_2016-09-28.json  ht_2016-10-01.json  ht_2016-11-01.json  ht_2016-12-01.json  ht_2017-01-01.json  ht_2017-02-01.json`
-bibs_out = open(__dir__+"/reports/num_bibs.csv", "w")
-bibs_out.puts "Month,Monographs,Serials,Undefined"
+if full_rebuild
+  bibs_out = File.open(__dir__+"/reports/num_bibs.csv", "w")
+  bibs_out.puts "Month,Monographs,Serials,Undefined"
 
-digo_out = open(__dir__+"/reports/num_dig.csv", "w")
-digo_out.puts "Month,Full View,Limited View"
+  digo_out = File.open(__dir__+"/reports/num_dig.csv", "w")
+  digo_out.puts "Month,Full View,Limited View"
 
-sudoc_out = open(__dir__+"/reports/num_sudocs.csv", "w")
-sudoc_out.puts "Month,"+sudoc_classes.join(",")
+  sudoc_out = File.open(__dir__+"/reports/num_sudocs.csv", "w")
+  sudoc_out.puts "Month,"+sudoc_classes.join(",")
+else
+  # append
+  bibs_out = File.open(__dir__+"/reports/num_bibs.csv", "a")
+  digo_out = File.open(__dir__+"/reports/num_dig.csv", "a")
+  sudoc_out = File.open(__dir__+"/reports/num_sudocs.csv", "a")
+end
 
 #connect Mongoid
 Mongoid.load!(ENV['MONGOID_CONF'], :htonly)
@@ -45,7 +55,13 @@ SourceRecord.create_indexes
 @extractor = Traject::Indexer::MarcIndexer.new
 @extractor.load_config_file('config/traject_publisher.rb')
 
-Dir.new(__dir__+"/data").sort.each do | s_f |
+# Run through the list of snapshots
+snaps = Dir.new(__dir__+"/data").sort.filter{ |fins| fins =~ /^ht_\d{4}-\d\d-\d\d.json.gz$/}
+unless full_rebuild
+  snaps = [snaps.last]
+end
+
+snaps.each do | s_f |
   next if s_f !~ /ht.*01.json/
 
   sr_date = s_f.split('_')[1].split('.')[0].split('-')[0,2].join('-')
