@@ -25,7 +25,7 @@
     * year_sudocstems.tsv
     * sudoctree.tsv
 4. Runs `stat_overview_report.rb`
-  Compiles a list of deprecated source record ids from the existing database.
+  Compiles a list of deprecated source record ids from the existing database. If `stat_overview_report.rb` is given the "full" argument it will re-compute all monthly snapshots. By default it only appends the newest month.
   Foreach monthly snapshot database it compiles num_full_text, num_not_full_text, num_monos, num_serials, num_undefined and sudoc class counts, *skipping sources that have since been deprecated.*
   Output:
     * num_bibs.csv
