@@ -17,8 +17,10 @@ deprecated_source_ids = {}
 #connect Mongoid
 Mongoid.load!(ENV['MONGOID_CONF'], :production)
 Mongo::Logger.logger.level = ::Logger::FATAL
-SourceRecord.where(org_code:"miaahdl",
-                   deprecated_timestamp:{"$exists":1}).no_timeout.pluck('source_id').each do | src_id |
+SourceRecord.where(
+  org_code:"miaahdl",
+  deprecated_timestamp:{"$exists":1}
+).no_timeout.pluck('source_id').each do | src_id |
   deprecated_source_ids[src_id] = 1
 end
 
@@ -76,15 +78,17 @@ snaps.each do | s_f |
   num_undefined = 0
   suds = Hash.new 0
 
-  SourceRecord.where(org_code:"miaahdl",
-                    deprecated_timestamp:{"$exists":0},
-                    in_registry:true).no_timeout.each do | src |
+  SourceRecord.where(
+    org_code:"miaahdl",
+    deprecated_timestamp:{"$exists":0},
+    in_registry:true
+  ).no_timeout.each do | src |
     next if deprecated_source_ids.key? src.source_id
 
     holdings = src.holdings
     src.holdings = holdings
     src.save
-                    
+
     if src.source['leader'] =~ /^.{7}m/
       num_monos += 1
     elsif src.source['leader'] =~ /^.{7}s/
@@ -113,7 +117,7 @@ snaps.each do | s_f |
       end
     end
   end #of this source record
-  
+
   bibs_out.puts [sr_date,num_monos,num_serials,num_undefined].join(",")
   digo_out.puts [sr_date,num_full_text,num_not_full_text].join(",")
 
