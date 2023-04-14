@@ -12,9 +12,5 @@ bundle exec ruby collection_profile_report.rb $D
 # DEV-263
 bundle exec ruby stat_overview_report.rb
 
-# Move the reports to the dev site. This gets us 80% of the way to deploy
-mkdir /htapps-dev/jstever.apps/usdocs_registry/public/assets/$D
-cp reports/num*.csv /htapps-dev/jstever.apps/usdocs_registry/public/assets/stats/
-cp reports/${D}_${D}/* /htapps-dev/jstever.apps/usdocs_registry/public/assets/$D
-
-# Manual commit/push then pull and puma restart in prod
+# Copy to web
+./copy_stats_to_web.sh
